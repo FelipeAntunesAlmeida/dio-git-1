@@ -1,2 +1,31 @@
 link download do git: https://git-scm.com/download/win
-Git bash é um terminal extendido para otimizar o uso do Git
+
+Muitas pessoas pensam que Git e GitHub são a mesma coisa, porém são duas tecnologias distintas que se complementam.
+O Git é um sistema de versionamento de software distribuido gratuito, apesar de existirem outros esse é o mais utilizado. 
+O GitHub empresa da microsoft, repositório on line para armazenar os arquivos através de uma conexão com o Git.
+
+Git bash é um terminal extendido para otimizar o uso do Git.
+
+através desse terminal conseguimos manipular os arquivos através de linhas de comando, as mais usuais para o SO Windows são:
+ - cd (navegar entre as pastas)
+ - dir (lista os diretórios contidos na pasta escolhida)
+ - mkdir (criar pasta)
+ - del (deletar arquivo)
+ - rmdir (deletar diretórios)
+
+o Git tem um sistema de criptografia muito seguro, onde gera uma chave única com 40 caracteres que serve como identificação, caso não existam alterações do conteúdo daquele arquivo essa chave não será alterada e mesmo após alterada se voltar a uma versão antiga terá a mesma identificação, pois essa chave é unica.
+
+para realizar a interação da máquina local com o GitHub é preciso se autenticar, para garantir a segurança dessa comunicação você pode configurar uma chave SSH, dessa forma você cria uma comunicação direta e segura entre os arquivos local e a nuvem;
+para gerar a chave SSH sera necessário acessar o Git Bash através do comando "ssh-keygen -t ed25519 -c "e-mail""
+será gerada uma chave publica e privada, deverá criar uma senha e confirmá-la;
+com a chave criada deve navegar ate a pasta onde elas estão e usar o comando "cat (nome do arquivo publico gerado)", selecionará para incluir nas configurações do GitHub.
+voltando ao Git Bash deverá inicializar o ssh agent através do comando "eval $(ssh-agent -s)" posterior "ssh-add (nome do arquivo privado gerado)" 
+para estabelecer a conexão utilize o comando "git clone" no terminal
+
+Com a chave ssh configurada o proesso para enviar arquivos ao GitHub se torna mais rápido, pois não há a necessidade de digitar seu usuário e senha a cada commit realizado
+
+para configurar um novo repositório sera utilizado o comando "git init" posterior o comando "git config --global user.email "digitar o e-mail" e "git config --global user.name "digitar o nome"
+
+adicionando arquivo a esta pasta para armazenar no GitHub utilizará os ccomandos "git add ." para selecionar todo o conteúdo da pasta e "git commit -m "escrever a mensagem que será exibida""
+
+O comando "git status" ajuda a monitorar o status dos arquivos
